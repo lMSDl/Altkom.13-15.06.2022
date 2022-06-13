@@ -7,7 +7,7 @@ namespace WPC
     {
         static void Main(string[] args)
         {
-            WPC.DesignPatterns.FactoryMethod.Client.Execute();
+            WPC.DesignPatterns.AbstractFactory.Client.Execute();
         }
 
         private static void LSP()

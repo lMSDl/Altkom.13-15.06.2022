@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WPC.DesignPrinciples
 {
@@ -22,20 +19,25 @@ namespace WPC.DesignPrinciples
 
         public bool Charge(int id, float amount)
         {
-            var paymentAccount = PaymentAccounts.SingleOrDefault(x => x.Id == id);
+            var paymentAccount = FindPaymentAccountById(id);
             if (paymentAccount == null)
                 return false;
 
-            if (paymentAccount.Income - paymentAccount.Outcome + paymentAccount.AllowedDebit < amount)
+            if (GetBalance(id) + paymentAccount.AllowedDebit < amount)
                 return false;
 
             paymentAccount.Outcome += amount;
             return true;
         }
 
+        private PaymentAccount FindPaymentAccountById(int id)
+        {
+            return PaymentAccounts.SingleOrDefault(x => x.Id == id);
+        }
+
         public void Fund(int id, float amount)
         {
-            var paymentAccount = PaymentAccounts.Where(x => x.Id == id).SingleOrDefault();
+            var paymentAccount = FindPaymentAccountById(id);
             if (paymentAccount == null)
                 return;
             paymentAccount.Income += amount;
@@ -43,7 +45,7 @@ namespace WPC.DesignPrinciples
 
         public float? GetBalance(int id)
         {
-            var paymentAccount = PaymentAccounts.Where(x => x.Id == id).SingleOrDefault();
+            var paymentAccount = FindPaymentAccountById(id);
             return paymentAccount?.Income - paymentAccount?.Outcome;
         }
     }

@@ -7,7 +7,11 @@ namespace WPC
     {
         static void Main(string[] args)
         {
+            WPC.DesignPatterns.Builder.Client.Execute();
+        }
 
+        private static void LSP()
+        {
             var rectangle = GetRectangle();
 
             var a = 5;
@@ -16,9 +20,7 @@ namespace WPC
             rectangle.A = a;
             rectangle.B = b;
             Console.WriteLine($"{a}*{b} = {rectangle.Area}");
-
         }
-
 
         static Rectangle GetRectangle()
         {

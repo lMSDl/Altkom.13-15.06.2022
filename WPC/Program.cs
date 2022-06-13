@@ -1,4 +1,5 @@
 ﻿using System;
+using WPC.SOLID.L;
 
 namespace WPC
 {
@@ -6,7 +7,23 @@ namespace WPC
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            var rectangle = GetRectangle();
+
+            var a = 5;
+            var b = 3;
+
+            rectangle.A = a;
+            rectangle.B = b;
+            Console.WriteLine($"{a}*{b} = {rectangle.Area}");
+
         }
+
+
+        static Rectangle GetRectangle()
+        {
+            return new Square();
+        } 
+
     }
 }

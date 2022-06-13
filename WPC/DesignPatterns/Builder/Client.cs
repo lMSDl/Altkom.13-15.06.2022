@@ -23,6 +23,16 @@ namespace WPC.DesignPatterns.Builder
             vehicle = builder.Build();
             Console.WriteLine(vehicle);
 
+            vehicle = new VehicleBuilder()
+                        .SetDoors(4)
+                        .SetSeats(5)
+                        .SetWheels(4)
+                        .SetEnginePower(100)
+                        .SetTrunkCapacity(500)
+                        .Build();
+            
+            Console.WriteLine(vehicle);
+
             vehicle = new Vehicle { Doors = 4, Seats = 4, TrunkCapacity = 500, EnginePower = 100, Wheels = 4 };
             Console.WriteLine(vehicle);
         }

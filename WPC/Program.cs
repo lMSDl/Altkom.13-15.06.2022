@@ -7,7 +7,7 @@ namespace WPC
     {
         static void Main(string[] args)
         {
-            WPC.DesignPatterns.Structural.Composite.Client.Execute();
+            WPC.DesignPatterns.Structural.Decorator.Client.Execute();
         }
 
         private static void LSP()

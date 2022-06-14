@@ -28,13 +28,20 @@ namespace WPC.DesignPatterns.Builder
             Console.WriteLine(vehicle);
 
 
-            vehicle = new VehicleBuilder()
+            vehicle = new VehicleBuilderFacade()
+                    .Parts
                         .SetDoors(4)
-                        .SetSeats(5)
                         .SetWheels(4)
                         .SetEnginePower(100)
                         .SetTrunkCapacity(500)
-                        .Build();
+                    .Metadata
+                        .SetModel("XAA12")
+                        .SetProductionDate(DateTime.Now)
+                    .Parts
+                        .SetSeats(5)
+                    .Metadata
+                        .SetManufacturer("Altkom")
+                     .Build();
             
             Console.WriteLine(vehicle);
 

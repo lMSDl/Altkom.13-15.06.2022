@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace WPC.DesignPatterns.Builder
 {
-    public class VehicleBuilder
+    public class VehicleBuilder : VehicleBuilderFacade
     {
-        private Vehicle Vehicle { get; set; } = new Vehicle();
+        public VehicleBuilder()
+        {
+        }
+
+        public VehicleBuilder(Vehicle vehicle) : base(vehicle)
+        {
+        }
 
         public VehicleBuilder SetWheels(int value)
         {
@@ -34,11 +40,6 @@ namespace WPC.DesignPatterns.Builder
         {
             Vehicle.EnginePower = value;
             return this;
-        }
-
-        public Vehicle Build()
-        {
-            return (Vehicle)Vehicle.Clone();
         }
     }
 }

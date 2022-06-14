@@ -29,16 +29,8 @@ namespace WPC.DesignPatterns.Singleton
             _settings[key] = value;
         }
 
-        private static Context _instance;
-
-        //public static Context GetInstance()
-        //{
-        //    if (_instance == null)
-        //        _instance = new Context();
-        //    return _instance;
-        //}
-
-        private static object _locker = new object();
+        //private static Context _instance;
+        //private static object _locker = new object();
         //public static Context GetInstance()
         //{
         //    lock (_locker)
@@ -48,17 +40,23 @@ namespace WPC.DesignPatterns.Singleton
         //    }
         //    return _instance;
         //}
-        public static Context GetInstance()
-        {
-            if (_instance == null)
-            {
-                lock (_locker)
-                {
-                    if (_instance == null)
-                        _instance = new Context();
-                }
-            }
-            return _instance;
-        }
+        //public static Context GetInstance()
+        //{
+        //    if (_instance == null)
+        //    {
+        //        lock (_locker)
+        //        {
+        //            if (_instance == null)
+        //                _instance = new Context();
+        //        }
+        //    }
+        //    return _instance;
+        //}
+
+        public static Context Instance { get; } = new Context();
+
+        /*private static Lazy<Context> _lazyInstance = new Lazy<Context>(() => new Context());
+        public static Context Instance => _lazyInstance.Value;*/
+    
     }
 }

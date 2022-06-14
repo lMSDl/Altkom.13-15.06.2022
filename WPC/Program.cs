@@ -7,7 +7,7 @@ namespace WPC
     {
         static void Main(string[] args)
         {
-            WPC.DesignPatterns.Structural.Flyweight.Client.Execute();
+            WPC.DesignPatterns.Structural.Proxy.Client.Execute();
         }
 
         private static void LSP()

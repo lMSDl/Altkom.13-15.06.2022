@@ -16,7 +16,7 @@ namespace WPC.DesignPatterns.Behavioral.Memento
             _state = (T)state.Clone();
             DateTime = DateTime.Now;
         }
-
+        
         public T GetState()
         {
             return (T)_state.Clone();

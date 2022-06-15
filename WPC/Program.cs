@@ -7,7 +7,7 @@ namespace WPC
     {
         static void Main(string[] args)
         {
-            WPC.DesignPatterns.Behavioral.Memento.Client.Execute();
+            WPC.DesignPatterns.Behavioral.Observer.Client.Execute();
         }
 
         private static void LSP()

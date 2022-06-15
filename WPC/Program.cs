@@ -7,7 +7,7 @@ namespace WPC
     {
         static void Main(string[] args)
         {
-            WPC.DesignPatterns.Behavioral.State.Client.Execute();
+            WPC.DesignPatterns.Behavioral.Strategy.Client.Execute();
         }
 
         private static void LSP()
